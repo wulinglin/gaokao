@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>是否有目标专业</title>
+</head>
+<body>
+<style>
+h3{
+float:left;
+}
+</style>
+
+<label><h4>我有目标专业(请选择您的专业类别或者输入您的目标专业）：</h4></label>
+<form action="/index/recommend/res" method="get">
+
+<label>请选择您感兴趣的专业类别：</label><br>
+<select name="catalogue" multiple="multiple">
+{% for key,values in lb_dict.items %}
+
+  <optgroup label="{{ key }}">
+      {% for v in values %}
+    <option value="{{ v }}">{{ v }}</option>
+        {% endfor %}
+  </optgroup>
+{% endfor %}
+</select>
+
+<br>
+<br>或输入您的目标专业的名字<br><br><input type="text" name="want_major"><br><br>
+<input type="text" name="want_major"><br><br>
+<input type="text" name="want_major"><br><br>
+<input type="text" name="want_major"><br><br>
+<input type="text" name="want_major"><br><br>
+     <input type="submit" value="确定"/>
+     <br>
+</form>
+<h4>我没有目标专业:<a href="/index/recommend/major/">点击进入MBTI专业推荐</a></h4>
+</body>
+</html>

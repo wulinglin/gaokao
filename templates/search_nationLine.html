@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>批次线查询</title>
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<div id="main" style="height:400px;width: 600px"></div>
+<!-- ECharts单文件引入 :外引可以百度：echrts.js cdn；本地的文件地址也可以-->
+<!-- <script src="js/echarts.js"></script>  ：本地失败了-->
+<!--<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>-->
+<script src="https://cdn.bootcss.com/echarts/4.0.2/echarts.min.js"> charset="UTF-8"</script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById("main"));
+    var minData=_.min({{data}})-40
+    var maxData=_.max({{data}})+20
+    var option = {
+        title : {
+            text: '批次趋势图',
+           // subtext: '纯属虚构'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+//        legend: {
+//            data:['最高气温','最低气温']
+//        },
+        //右上角切换实现方法
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                //dataView : {show: true, readOnly: false},//数据显示
+                dataView: {
+                            //lang:['数据视图', '关闭', '刷新'],
+                            show: true,
+                            readOnly:false,
+                            backgroundColor:'#BC8F8F',
+//                            textareaBorderColor:'#fff',//#fff
+                            textareaColor:'#F5F5F5',//#333
+                            },
+                magicType : {show: true, type: ['line', 'bar']},//折线图，柱状图
+                restore : {show: true},//还原
+                saveAsImage : {show: true}//存储图像
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',//这是不能更改的
+                boundaryGap : false,
+                data:{{categories}}
+            }
+        ],
+        yAxis :
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value}分',
+                    //interval: 10,
+                },
+
+                min: minData,
+
+                max: maxData,
+
+        },
+        series : [
+            {
+                name:'分数线',
+                type:'line',
+                data:{{data}},
+                itemStyle:{
+                    normal:{
+                        label:{
+                            show:true//这里设置数值(分数）显示
+                        }
+                    }
+                },
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}//最大最小显示
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}//均值线
+                    ]
+                }
+            },
+//            {
+//                name:'最低气温',
+//                type:'line',
+//                data:[1, -2, 2, 5, 3, 2, 0],
+//                markPoint : {
+//                    data : [
+////                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+//                        {type : 'min', name: '周最低'}
+//                    ]
+//                },
+//                markLine : {
+//                    data : [
+//                        {type : 'average', name : '平均值'}
+//                    ]
+//                }
+//            }
+        ]
+    };
+
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+
+</script>
+</body>
+</html>

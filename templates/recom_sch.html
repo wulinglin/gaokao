@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>高校推荐</title>
+</head>
+<body>
+
+<h5>请输入您的基本信息</h5>
+
+<form action="/index/recommend/school/res" method="get">
+{% if error %}
+        <p style="color: red;">请在下拉框或文本框填入正确的数据！</p>
+{% endif %}
+<label>生源地:</label>
+     <select name="province">
+    <option  value="北京">北京</option>
+<option  value="天津">天津</option>
+<option  value="辽宁">辽宁</option>
+<option  value="吉林">吉林</option>
+<option  value="黑龙江">黑龙江</option>
+<option  value="上海">上海</option>
+<option  value="江苏">江苏</option>
+<option  value="浙江">浙江</option>
+<option  value="安徽">安徽</option>
+<option  value="福建">福建</option>
+<option  value="山东">山东</option>
+<option  value="湖北">湖北</option>
+<option  value="湖南">湖南</option>
+<option  value="广东">广东</option>
+<option  value="重庆">重庆</option>
+<option  value="四川">四川</option>
+<option  value="陕西">陕西</option>
+<option  value="甘肃">甘肃</option>
+<option  value="河北">河北</option>
+<option  value="山西">山西</option>
+<option  value="内蒙古">内蒙古</option>
+<option  value="河南">河南</option>
+<option  value="海南">海南</option>
+<option  value="广西">广西</option>
+<option  value="贵州">贵州</option>
+<option  value="云南">云南</option>
+<option  value="西藏">西藏</option>
+<option  value="青海">青海</option>
+<option  value="宁夏">宁夏</option>
+<option  value="新疆">新疆</option>
+<option  value="江西">江西</option>
+<option  value="香港">香港</option>
+<option  value="澳门">澳门</option>
+<option  value="台湾">台湾</option>
+    </select><br>
+    <br>
+<label>科类：</label>
+     <select name="classy">
+    <option  value="文科">文科</option>
+    <option  value="理科">理科</option>
+    <option  value="综合">综合</option>
+    <option  value="其他">其他</option>
+    <option  value="艺术理">艺术理</option>
+    <option  value="艺术文">艺术文</option>
+    </select><br>
+    <br>
+分数: <input type="text" name="point"><br>
+
+<label>请输入您想去的省份（按ctrl可多选）：</label>
+
+
+     <select name="want_province" multiple="multiple">
+          <option  value="全国"> 全国</option>
+    <option  value="北京">北京</option>
+<option  value="天津">天津</option>
+<option  value="辽宁">辽宁</option>
+<option  value="吉林">吉林</option>
+<option  value="黑龙江">黑龙江</option>
+<option  value="上海">上海</option>
+<option  value="江苏">江苏</option>
+<option  value="浙江">浙江</option>
+<option  value="安徽">安徽</option>
+<option  value="福建">福建</option>
+<option  value="山东">山东</option>
+<option  value="湖北">湖北</option>
+<option  value="湖南">湖南</option>
+<option  value="广东">广东</option>
+<option  value="重庆">重庆</option>
+<option  value="四川">四川</option>
+<option  value="陕西">陕西</option>
+<option  value="甘肃">甘肃</option>
+<option  value="河北">河北</option>
+<option  value="山西">山西</option>
+<option  value="内蒙古">内蒙古</option>
+<option  value="河南">河南</option>
+<option  value="海南">海南</option>
+<option  value="广西">广西</option>
+<option  value="贵州">贵州</option>
+<option  value="云南">云南</option>
+<option  value="西藏">西藏</option>
+<option  value="青海">青海</option>
+<option  value="宁夏">宁夏</option>
+<option  value="新疆">新疆</option>
+<option  value="江西">江西</option>
+
+    </select><br>
+    <br>
+    是否少数民族:<input type="radio" value="是" name="nation"/>是 &nbsp;&nbsp;<input type="radio" value="否" name="nation"/>否
+<br><br>
+    请输入加分政策之后的分数（选填）: <input type="text" name="add_point"><br>
+    <br>
+
+<!--
+是否应届：<input type="radio" value="是" name="yingjie"/>是 &nbsp;&nbsp;<input type="radio" value="否" name="yingjie"/>否
+ <br><br>
+户口：<input type="radio" value="城镇" name="hukou"/>城镇 &nbsp;&nbsp;<input type="radio" value="农村" name="hukou"/>农村
+ <br><br>
+性别：<input type="radio" value="男" name="sex"/>男 &nbsp;&nbsp;<input type="radio" value="女" name="sex"/>女
+ <br><br>
+
+是否少数民族:<input type="radio" value="是" name="minority"/>是 &nbsp;&nbsp;<input type="radio" value="否" name="minority"/>否
+ <br><br>
+
+-->
+    <input type="reset" value="重置">
+    <input type="submit" value="提交" >
+</form>
+</body>
+</html>

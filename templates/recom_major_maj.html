@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>专业推荐</title>
+</head>
+<body>
+{{major_json}}
+<!--
+<p>根据您的性格特征及兴趣领域，您适合的专业有：{{major_str}}</p>  -->
+<form action="/index/recommend/all/" method="get">
+<p>点击您感兴趣的专业可继续进行学校及专业推荐：</p>
+    {% for maj in major_recommend %}
+   <input type="checkbox" name="lingyu" value="{{maj}}">{{maj}}
+    {% endfor %}
+<br><br>
+<input type="submit" value="确定"/></form>
+<h4><a href="/index/">不了，回到首页</a></h4>
+
+</body>
+</html>

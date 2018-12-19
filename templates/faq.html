@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BotUI - Hello World</title>
+  <script   src="http://code.jquery.com/jquery-3.3.1.js"   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/botui/build/botui-theme-default.css" />
+</head>
+
+<body>
+  <div class="botui-app-container" id="hello-world">
+    <bot-ui></bot-ui>
+  </div>
+  <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+  <script>
+
+    var botui = new BotUI('hello-world');
+    API = 'http://127.0.0.1:8000/index/faq/aq';
+    var loadingMsgIndex
+    botui.message
+      .bot({
+        delay: 1000,
+        content: '我是高小智。有什么可以帮助您呢？'
+      })
+
+    function sendXHR(value, showStars) {
+      $.get(API+"?"+"value="+value.toString()+"&"+Math.random(),function(data){
+
+
+        var c=data["answer"]
+        showStars(c);
+      })
+
+    }
+
+    function init() {
+
+      botui.action.text({
+          delay: 1000,
+          action: {
+            value: '',
+            placeholder: '请输入...'
+          }
+        })
+        .then(function (res) {
+          loadingMsgIndex = botui.message.bot({
+            delay: 200,
+            loading: true
+          }).then(function (index) {
+            loadingMsgIndex = index;
+            sendXHR(res.value, showStars)
+          });
+        });
+    }
+
+    function showStars(stars) {
+
+      botui.message
+        .update(loadingMsgIndex, {
+
+          content: stars
+        })
+        .then(init); // ask again for repo. Keep in loop.
+    }
+    init();
+
+  </script>
+</body>
+
+</html>

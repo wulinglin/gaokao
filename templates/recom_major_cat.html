@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>专业领域推荐</title>
+</head>
+<body>
+<!--
+<h5>根据您的MBTI性格测试，您属于{{mbti_answer}}人格。
+<p>您的性格特征表现为：</p>
+{%for each  in mbti_explanation%}
+<p> each.explanation</p>
+{%endfor%}
+<h5>根据您性格特征，您适合的领域有：{{catalogue_str}}。</h5>
+-->
+{{res_json}}
+<form action="/index/recommend/major/major" method="get">
+{% if error %}
+<p style="color: red;"> 请选择您感兴趣的领域，随后将为您精确推荐专业。</p>
+{% endif %}
+<p>请点击您感兴趣的领域：</p>
+    {% for cat in catalogue %}
+   <input type="checkbox" name="lingyu" value="{{ cat }}">{{ cat }}
+    {% endfor %}
+    <br><br>
+<input type="submit" value="确定"/></form>
+
+</body>
+</html>

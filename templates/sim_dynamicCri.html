@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<label> 推荐结果</label>
+    <select name="r">
+       <option  value="{{r}}">
+       {{ r}}
+        </option>
+</select>
+<br><br>
+<form action="/index/sim/dynamic" method="get">
+<label> 如果推荐不满意清再次选择您想要的评价:</label><br><br>
+    <select name="sc" >
+        {% for k,v in sc.items%}
+        <option value="{{ k }}">
+        {{ v }}
+        </option>
+{% endfor %}
+</select>
+<br><br>
+<input type="reset" value="重置">
+<input type="submit" value="提交" >
+</form>
+
+</body>
+</html>

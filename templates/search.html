@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>往年招生数据据查询</title>
+</head>
+<body>
+<style>
+h3{
+//width:200px;
+//height:20px;会限制左右宽度，建议不用
+float:left;//或者用right根据自己需求list-style:none用来去除li标签前面的小圆点。
+}
+</style>
+{% if error %}
+        <p style="color: red;">请在下拉框或文本框填入正确的数据！</p>
+{% endif %}
+<form action="/index/search/nationLine" method="get">
+<b>地区批次线</b>
+<!--<label>年份：</label>-->
+
+     <select name="year">
+     <option  value="全部">全部</option>
+
+     {%for each in years%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+    </select>
+<!--<label>科类：</label>-->
+     <select name="classy">
+     <option  value="全部">全部</option>
+     <option  value="科类">科类</option>
+    <option  value="文科">文科</option>
+    <option  value="理科">理科</option>
+    <option  value="综合">综合</option>
+    <option  value="艺术类">艺术类</option>
+    <option  value="体育类">体育类</option>
+    </select>
+
+<select name="batch">
+
+<option  value="全部">全部</option>
+<option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option>
+<option  value="第三批">第三批</option>
+<option  value="本科">本科</option>
+<option  value="自主招生">自主招生</option>
+</select>
+
+<!--<label>地区：</label>-->
+     <select name="province">
+    <option  value="全部">全部</option>
+    {%for each in provinces%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+        </select>
+    <input type="submit" value="搜索" >
+</form>
+
+<br>
+
+
+<form action="/index/search/majorLine">
+<b> 高校专业分地区录取线</b>
+
+<input type="text" name="school" value="请输入高校名" >
+<input type="text" name="major" value="请输入专业名">
+
+     <select name="classy">
+    <option  value="全部">全部</option>
+    <option  value="文科">文科</option>
+    <option  value="理科">理科</option>
+    <option  value="综合">综合</option>
+    <option  value="艺术类">艺术类</option>
+    <option  value="体育类">体育类</option>
+    </select>
+
+
+     <select name="province">
+      <option  value="全部">全部</option>
+   {%for each in provinces%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+    </select>
+
+    <input type="submit" value="搜索" >
+</form>
+
+<br>
+
+<form action="/index/search/schoolLine">
+<b>高校分地区录取线</b>
+
+<input type="text" name="school" value="请输入高校名">
+     <select name="classy">
+<option  value="全部">全部</option>
+    <option  value="文科">文科</option>
+    <option  value="理科">理科</option>
+    <option  value="综合">综合</option>
+    <option  value="艺术类">艺术类</option>
+    <option  value="体育类">体育类</option>
+    </select>
+
+     <select name="province">
+     <option  value="全部">全部</option>
+{%for each in provinces%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+    </select>
+    <input type="submit" value="搜索" >
+</form>
+
+<br>
+
+<form action="/index/search/schoolInfo" method="get">
+<b>高校基本信息</b>
+<input type="text" name="school" value="请输入高校名">
+     <select name="leixing">
+     <option  value="全部">全部</option>
+     <option  value="211,985">211,985</option>
+    <option  value="211">211</option>
+    <option  value="其它">其它</option>
+    </select>
+
+     <select name="lishuyu">
+     <option  value="全部">全部</option>
+    <option  value="教育部">教育部</option>
+    <option  value="地方所属">地方所属</option>
+    <option  value="其它">其它</option>
+    <option  value="其它中央部委">其它中央部委</option>
+    </select>
+     <select name="province">
+<option  value="全部">全部</option>
+{%for each in provinces%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+
+    </select>
+<select name="school_type">
+<option  value="全部">全部</option>
+{%for each in school_types%}
+        <option  value="{{each}}">{{each}}</option>
+     {% endfor %}
+	 </select>
+
+    <input type="submit" value="搜索" >
+
+</form>
+</body>
+</html>

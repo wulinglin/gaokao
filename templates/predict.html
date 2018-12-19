@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>2018分数线预测</title>
+  <script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+var currentShowCity=0;
+$(document).ready(function(){
+   $("#province").change(function(){
+	   $("#province option").each(function(i,o){
+		   if($(this).attr("selected"))
+		   {
+			   $(".batch").hide();
+			   $(".classy").show();
+			   $(".batch").eq(i).show();
+			   currentShowCity=i;
+		   }
+	   });
+   });
+   $("#province").change();
+});
+
+</script>
+
+</head>
+<body>
+<!--如果写成index/predict/line，则有/index/predict/index/predict/line/
+/index/predict/line 等价于 line-->
+<form   action="line"  method="get">
+<label>国家线预测：</label>
+    <select  name="province" id="province" >
+    <option  value="地区">地区</option>
+<!--1-5,本科-->
+<option  value="上海">上海</option>
+<option  value="广东">广东</option>
+<option  value="浙江">浙江</option>
+<option  value="海南">海南</option>
+<option  value="山东">山东</option>
+<!--1-5,一二三本-->
+<option  value="陕西">陕西</option>
+<option  value="青海">青海</option>
+<option  value="云南">云南</option>
+<option  value="吉林">吉林</option>
+<option  value="宁夏">宁夏</option>
+<option  value="甘肃">甘肃</option>
+<option  value="黑龙江">黑龙江</option>
+<option  value="湖南">湖南</option>
+<!--1-5,一二本-->
+<option  value="北京">北京</option>
+<option  value="天津">天津</option>
+<option  value="辽宁">辽宁</option>
+<option  value="江苏">江苏</option>
+<option  value="安徽">安徽</option>
+<option  value="福建">福建</option>
+<option  value="湖北">湖北</option>
+<option  value="重庆">重庆</option>
+<option  value="四川">四川</option>
+<option  value="河北">河北</option>
+<option  value="山西">山西</option>
+<option  value="内蒙古">内蒙古</option>
+<option  value="河南">河南</option>
+<option  value="广西">广西</option>
+<option  value="贵州">贵州</option>
+<option  value="江西">江西</option>
+<!--2,不推荐-->
+<option  value="新疆">新疆</option>
+<option  value="西藏">西藏</option>
+
+</select>
+
+     <select name="classy">
+      <option  value="科类">科类</option><option  value="文科">文科</option> <option  value="理科">理科</option>
+    </select>
+
+   <select class="batch"  name="batch">
+   		<option>批次</option>
+   </select>
+
+
+   <select class="batch"  name="batch"><option  value="本科">本科</option></select>
+<select class="batch" name="batch"><option  value="本科">本科</option></select>
+<select class="batch" name="batch"><option  value="本科">本科</option></select>
+<select class="batch" name="batch"><option  value="本科">本科</option></select>
+<select class="batch" name="batch"><option  value="本科">本科</option></select>
+
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+ <select class="batch" name="batch"><option  value="第一批">第一批</option>
+ <option  value="第二批">第二批</option><option  value="第三批">第三批</option></select>
+
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+    <select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+<select class="batch" name="batch"><option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option></select>
+
+    <br><br>
+    <input type="submit" value="提交" >
+</form>
+
+<br>
+
+<form  action="index/predict/school" method="get">
+<label>高校专业分数线预测：</label>
+高校: <input type="text" name="school">
+ <select name="classy">
+ <option  value="科类">科类</option>
+    <option  value="文科">文科</option>
+    <option  value="理科">理科</option>
+    </select>
+
+<select name="batch">
+<option  value="批次">批次</option>
+<option  value="第一批">第一批</option>
+<option  value="第二批">第二批</option>
+<option  value="第三批">第三批</option>
+</select>
+
+<select  name="province">
+        <option  value="地区">地区</option>
+        <option  value="北京">北京</option>
+<option  value="天津">天津</option>
+<option  value="辽宁">辽宁</option>
+<option  value="吉林">吉林</option>
+<option  value="黑龙江">黑龙江</option>
+<option  value="上海">上海</option>
+<option  value="江苏">江苏</option>
+<option  value="浙江">浙江</option>
+<option  value="安徽">安徽</option>
+<option  value="福建">福建</option>
+<option  value="山东">山东</option>
+<option  value="湖北">湖北</option>
+<option  value="湖南">湖南</option>
+<option  value="广东">广东</option>
+<option  value="重庆">重庆</option>
+<option  value="四川">四川</option>
+<option  value="陕西">陕西</option>
+<option  value="甘肃">甘肃</option>
+<option  value="河北">河北</option>
+<option  value="山西">山西</option>
+<option  value="内蒙古">内蒙古</option>
+<option  value="河南">河南</option>
+<option  value="海南">海南</option>
+<option  value="广西">广西</option>
+<option  value="贵州">贵州</option>
+<option  value="云南">云南</option>
+<option  value="西藏">西藏</option>
+<option  value="青海">青海</option>
+<option  value="宁夏">宁夏</option>
+<option  value="新疆">新疆</option>
+<option  value="江西">江西</option>
+</select>
+<br><br>
+<input type="submit" value="提交" >
+</form>
+
+</body>
+</html>

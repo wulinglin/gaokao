@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>您的志愿智能填报</title>
+<h4> 高校及专业推荐：</h4>
+    <ul type="a1">
+{% for each in candidate%}
+        <li>
+        {% for i in each %}
+            {{ i }}
+        {% endfor %}
+        </li>
+{% endfor %}
+</ul>
+
+</head>
+<body>
+</body>
+</html>
